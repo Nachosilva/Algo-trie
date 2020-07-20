@@ -1,0 +1,24 @@
+  
+name: Listas C++ CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Instalar dependencias
+      run: sudo apt-get install g++ valgrind cmake
+
+    - name: Ejecutar CMake
+      run: cmake .
+
+    - name: Tests
+      run: |
+        make correrTests
+        ./correrTests
+    - name: Memory Leaks Check
+      run: make correrValgrind
