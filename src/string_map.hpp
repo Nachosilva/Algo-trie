@@ -62,7 +62,6 @@ void string_map<T>::insert(const pair<string, T>& elem){
     }
      if(nodoActual -> definicion!= nullptr){
          delete nodoActual->definicion;
-         nodoActual-> definicion= nullptr;
          _size--;
      }
     nodoActual->definicion= new T(get<1>(elem));
