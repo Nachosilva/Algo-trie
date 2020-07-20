@@ -44,6 +44,7 @@ string_map<T>::~string_map(){
     delete _raiz;
 }
 
+template <typename T>
 void string_map<T>::insert(const pair<string, T>& elem){
     if(_raiz==nullptr){
         _raiz= new Nodo();
@@ -60,8 +61,9 @@ void string_map<T>::insert(const pair<string, T>& elem){
             i++;
         }
     }
-     if(nodoActual -> definicion!= nullptr){
+     if(nodoActual -> definicion != nullptr){
          delete nodoActual->definicion;
+         nodoActual->definicion= nullptr;
          _size--;
      }
     nodoActual->definicion= new T(get<1>(elem));
